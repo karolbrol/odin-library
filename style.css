@@ -1,0 +1,38 @@
+* , *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-white: #feffff;
+    --clr-gray: #def2F1;
+    --clr-dgray: #233941;
+    --clr-dark: #051216;
+    --clr-accent1: #3aafa9;
+    --clr-daccent1: #195463;
+    --clr-accent2: #fbbf24;
+    --clr-shadow: rgba(18, 48, 168, 0.294);
+}
+
+body {
+    background-color: var(--clr-dgray);
+    padding: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-container {
+    background-color: var(--clr-gray);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+table.book-table tr {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: start;
+}
