@@ -1,8 +1,12 @@
 const myLibrary = [
   new Book('nazwa1', 'autor1', 100, false),
+  new Book('nazwa3', 'autor1', 100, false),
+  new Book('nazwa4', 'autor1', 100, false),
   new Book('nazwa2', 'autor2', 200, true)
 ];
 const tableBody = document.querySelector('table.book-table tbody');
+
+updateBooksDisplay();
 
 function Book(name, author, pages, read) {
   this.name = name;
