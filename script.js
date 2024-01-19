@@ -5,8 +5,15 @@ const myLibrary = [
   new Book('nazwa2', 'autor2', 200, true)
 ];
 const tableBody = document.querySelector('table.book-table tbody');
+const modal = document.querySelector('.modal');
+const addBookBtn = document.querySelector('#add-book-btn');
+const addModalBtn = document.querySelector('#add-modal-btn');
+const cancelModalBtn = document.querySelector('#cancel-modal-btn');
 
-updateBooksDisplay();
+addBookBtn.addEventListener('click', () => { modal.showModal() });
+addModalBtn.addEventListener('click', () => {});
+cancelModalBtn.addEventListener('click', () => { modal.close() });
+
 
 function Book(name, author, pages, read) {
   this.name = name;

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: none;
 }
 
 :root {
@@ -53,4 +54,22 @@ table.book-table tr {
 
 table.book-table tbody>tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--clr-gray);
+    border-radius: 10px;
+}
+
+.modal::backdrop {
+    backdrop-filter: blur(3px) saturate(.3);
+}
+
+.modal form {
+    background-color: red;
+    border: none;
 }

@@ -10,6 +10,24 @@
 <body>
     <div class="book-container">
         <button type="button" id="add-book-btn">ADD BOOK</button>
+        <dialog class="modal">
+            <form>
+                <label for="title">Title
+                    <input type="text" id="title">
+                </label>
+                <label for="author">Author
+                    <input type="text" id="author">
+                </label>
+                <label for="pages">Pages
+                    <input type="number" id="pages">
+                </label>
+                <label for="read">Read
+                    <input type="checkbox" id="read">
+                </label>
+                <button type="button" id="cancel-modal-btn">Cancel</button>
+                <button type="button" id="add-modal-btn">Add</button>
+            </form>
+        </dialog>
         <table class="book-table">
             <thead>
                 <tr>
@@ -35,5 +53,6 @@
             </tbody>
         </table>
     </div>
+    
 </body>
 </html>
