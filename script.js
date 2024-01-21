@@ -3,7 +3,8 @@ const tableBody = document.querySelector('table.book-table tbody');
 const modal = document.querySelector('.modal');
 const addBookBtn = document.querySelector('#add-book-btn');
 const addBookForm = modal.querySelector('#add-book-form');
-const cancelModalBtn = modal.querySelector('#cancel-modal-btn');
+const modalAddBtn = modal.querySelector('#modal-add-btn');
+const modalCancelBtn = modal.querySelector('#modal-cancel-btn');
 
 
 // Adding book events
@@ -18,12 +19,21 @@ addBookForm.addEventListener('submit', (event) => {
   updateBooksDisplay();
 });
 
-cancelModalBtn.addEventListener('click', () => {
-  addBookForm.reset();
-  modal.close();
-});
+modal.addEventListener('click', (event) => {
+  const modalDimensions = modal.getBoundingClientRect();
+  if (
+    event.clientX < modalDimensions.left ||
+    event.clientX > modalDimensions.right ||
+    event.clientY < modalDimensions.top ||
+    event.clientY > modalDimensions.bottom ||
+    event.target === modalCancelBtn
+  ) {
+    addBookForm.reset();
+    modal.close();
+  }
+} );
 
-// Managing books events
+// Managing books events: toggle and delete
 tableBody.addEventListener('click', (event) => {
   const element = event.target
   if (element.tagName !== 'BUTTON') {
@@ -37,7 +47,7 @@ tableBody.addEventListener('click', (event) => {
       myLibrary[index].toggleRead();
       break;
     case 'delete':
-      myLibrary.pop(index);
+      myLibrary.splice(index, 1);
       break;
   }
   updateBooksDisplay();
@@ -101,15 +111,16 @@ function updateBooksDisplay() {
   }
 }
 
+// function returns object with key: values of all forms inputs
 function getInputs(form) {
   const inputs = form.querySelectorAll('input');
   let values = {};
   for (const input of inputs) {
     if (input.type === 'checkbox') {
-      values[input.id] = input.checked;
+      values[input.name] = input.checked;
       continue;
     }
-    values[input.id] = input.value;
+    values[input.name] = input.value;
   }
   return values;
 }
