@@ -21,7 +21,7 @@ addBookForm.addEventListener('submit', (event) => {
 
 modal.addEventListener('click', (event) => {
   const modalDimensions = modal.getBoundingClientRect();
-  if (
+  if (  // Click outside modal or on cancel button
     event.clientX < modalDimensions.left ||
     event.clientX > modalDimensions.right ||
     event.clientY < modalDimensions.top ||
@@ -31,7 +31,7 @@ modal.addEventListener('click', (event) => {
     addBookForm.reset();
     modal.close();
   }
-} );
+});
 
 // Managing books events: toggle and delete
 tableBody.addEventListener('click', (event) => {
